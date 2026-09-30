@@ -1,0 +1,43 @@
+// API endpoints
+const resolvedBaseUrl = import.meta.env.VITE_API_URL ||
+  (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000')
+
+export const API_URL = resolvedBaseUrl
+
+// User roles
+export const ROLES = {
+  PASSENGER: 'PASSENGER',
+  RIDER: 'RIDER',
+  ADMIN: 'ADMIN',
+  SUPER_ADMIN: 'SUPER_ADMIN',
+  SUPPORT_AGENT: 'SUPPORT_AGENT',
+  FINANCE_MANAGER: 'FINANCE_MANAGER',
+  OPERATIONS_MANAGER: 'OPERATIONS_MANAGER',
+  CONTENT_MODERATOR: 'CONTENT_MODERATOR',
+  FLEET_MANAGER: 'FLEET_MANAGER'
+}
+
+// Booking status
+export const BOOKING_STATUS = {
+  PENDING: 'PENDING',
+  CONFIRMED: 'CONFIRMED',
+  REJECTED: 'REJECTED',
+  EXPIRED: 'EXPIRED',
+  PICKUP_PENDING: 'PICKUP_PENDING',
+  PICKED_UP: 'PICKED_UP',
+  IN_TRANSIT: 'IN_TRANSIT',
+  DROPOFF_PENDING: 'DROPOFF_PENDING',
+  DROPPED_OFF: 'DROPPED_OFF',
+  CANCELLED: 'CANCELLED',
+  NO_SHOW: 'NO_SHOW',
+  COMPLETED: 'COMPLETED'
+}
+
+// Ride status
+export const RIDE_STATUS = {
+  ACTIVE: 'ACTIVE',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED'
+}

@@ -1,0 +1,130 @@
+/* ============================================
+   LoopLane — Clean Design System
+   ============================================ */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Leaflet CSS */
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Base Layer
+   ============================================ */
+
+@layer base {
+  :root {
+    --ll-brand: #10b981;
+    --ll-brand-dark: #059669;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    @apply bg-white text-zinc-900;
+  }
+
+  .dark body {
+    @apply bg-zinc-950 text-zinc-100;
+  }
+
+  h1, h2, .font-serif {
+    font-family: 'Instrument Serif', Georgia, serif;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  img[src=""], img:not([src]) {
+    visibility: hidden;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-primary-500 outline-offset-2;
+  }
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================
+   Range Slider
+   ============================================ */
+
+input[type="range"].slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: 9999px;
+}
+
+input[type="range"].slider-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #10b981;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"].slider-thumb::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #10b981;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   Leaflet Map Overrides
+   ============================================ */
+
+.leaflet-container { width: 100%; height: 100%; z-index: 1; }
+.leaflet-control-zoom { border: none !important; box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important; }
+.leaflet-control-zoom a { background: white !important; color: #374151 !important; border-radius: 8px !important; }
+
+/* ============================================
+   Loading / Shimmer
+   ============================================ */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer { animation: shimmer 1.5s infinite linear; }
+
+/* ============================================
+   Lenis Smooth Scroll
+   ============================================ */
+
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+/* ============================================
+   Mobile Menu
+   ============================================ */
+
+@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes slideOut { from { transform: translateX(0); } to { transform: translateX(100%); } }
+.mobile-menu-enter { animation: slideIn 0.3s ease-out forwards; }
+.mobile-menu-exit { animation: slideOut 0.3s ease-out forwards; }
